@@ -4,24 +4,19 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TaskList.Infra.Migrations;
 
-class Program
+var builder = Host.CreateDefaultBuilder(args);
+
+
+builder.ConfigureServices((context, services) =>
 {
-    static void Main(string[] args)
-    {
-        var builder = Host.CreateDefaultBuilder(args);
+    services.AddDbContext<TaskListDbContext>(options =>
+        options.UseNpgsql(context.Configuration.GetConnectionString("DefaultConnection")));
+});
 
-        builder.ConfigureServices((context, services) =>
-        {
-            services.AddDbContext<TaskListDbContext>(options =>
-                options.UseNpgsql(context.Configuration.GetConnectionString("DefaultConnection")));
-        });
+var host = builder.Build();
 
-        var host = builder.Build();
-
-        using (var scope = host.Services.CreateScope())
-        {
-            var dbContext = scope.ServiceProvider.GetRequiredService<TaskListDbContext>();
-            dbContext.Database.Migrate();
-        }
-    }
+using (var scope = host.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<TaskListDbContext>();
+    dbContext.Database.Migrate();
 }

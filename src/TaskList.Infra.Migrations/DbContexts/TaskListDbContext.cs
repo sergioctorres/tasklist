@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TaskList.Domain.Entities;
+using TaskList.Infra.Migrations.DbContexts.Mappings;
 
 namespace TaskList.Infra.Migrations
 {
@@ -7,7 +8,15 @@ namespace TaskList.Infra.Migrations
     {
         public TaskListDbContext(DbContextOptions<TaskListDbContext> options) : base(options) { }
 
-        public DbSet<Domain.Entities.Task> Task { get; set; }
-        public DbSet<User> User { get; set; }
+        public DbSet<Domain.Entities.Task> Tasks { get; set; }
+        public DbSet<User> Users { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new TaskDbMapping());
+            modelBuilder.ApplyConfiguration(new UserDbMapping());
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
