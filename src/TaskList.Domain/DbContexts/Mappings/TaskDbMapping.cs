@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 
-namespace TaskList.Infra.Migrations.DbContexts.Mappings
+namespace TaskList.Domain.DbContexts.Mappings
 {
     public class TaskDbMapping : IEntityTypeConfiguration<Domain.Entities.Task>
     {

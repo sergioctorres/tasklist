@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using TaskList.Infra.Migrations;
+using TaskList.Domain.DbContexts;
 
 var builder = Host.CreateDefaultBuilder(args);
 
@@ -10,7 +10,7 @@ var builder = Host.CreateDefaultBuilder(args);
 builder.ConfigureServices((context, services) =>
 {
     services.AddDbContext<TaskListDbContext>(options =>
-        options.UseNpgsql(context.Configuration.GetConnectionString("DefaultConnection")));
+        options.UseNpgsql(context.Configuration.GetConnectionString("DefaultConnection"), o => o.MigrationsAssembly("TaskList.Infra.Migrations")));
 });
 
 var host = builder.Build();

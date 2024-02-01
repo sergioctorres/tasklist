@@ -9,4 +9,39 @@ services:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: $3nh@
     ports:
-      - "5437:5437"
+      - "5432:5437"
+    networks:
+      - infra-network
+      
+  migrations:
+    image: tasklist-migrations
+    build:
+      context: .
+      dockerfile: TaskList.Infra.Migrations/Dockerfile
+    ports:
+      - "9090:9090"
+    depends_on:
+      - postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: $3nh@
+      POSTGRES_DB: TaskListDb
+      host: postgres
+      port: 5432
+    networks:
+      - infra-network
+
+  api:
+    image: tasklist-api
+    build:
+      context: .
+      dockerfile: TaskList.API/Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - migrations
+    networks:
+      - infra-network
+      
+networks:
+  infra-network:

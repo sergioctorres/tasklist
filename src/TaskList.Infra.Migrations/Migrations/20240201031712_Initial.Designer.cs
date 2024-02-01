@@ -5,14 +5,14 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using TaskList.Infra.Migrations;
+using TaskList.Domain.DbContexts;
 
 #nullable disable
 
 namespace TaskList.Infra.Migrations.Migrations
 {
     [DbContext(typeof(TaskListDbContext))]
-    [Migration("20240201021900_Initial")]
+    [Migration("20240201031712_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
