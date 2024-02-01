@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskList.Infra.Data", "Task
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskList.Infra.Migrations", "TaskList.Infra.Migrations\TaskList.Infra.Migrations.csproj", "{83BBA63A-A6DE-4FE4-9912-211939EBDB04}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{967C47E1-40B0-42DA-95C6-BADB1AEB9C6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{83BBA63A-A6DE-4FE4-9912-211939EBDB04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83BBA63A-A6DE-4FE4-9912-211939EBDB04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83BBA63A-A6DE-4FE4-9912-211939EBDB04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{967C47E1-40B0-42DA-95C6-BADB1AEB9C6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{967C47E1-40B0-42DA-95C6-BADB1AEB9C6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{967C47E1-40B0-42DA-95C6-BADB1AEB9C6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{967C47E1-40B0-42DA-95C6-BADB1AEB9C6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
