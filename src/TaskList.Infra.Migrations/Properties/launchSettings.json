@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "TaskList.Infra.Migrations": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
