@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using TaskList.Infra.Migrations;
+using TaskList.Domain.DbContexts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,12 +26,8 @@ builder.Services.AddDbContext<TaskListDbContext>(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using TaskList.Domain.Entities;
 
-namespace TaskList.Infra.Migrations.DbContexts.Mappings
+namespace TaskList.Domain.DbContexts.Mappings
 {
     public class UserDbMapping : IEntityTypeConfiguration<User>
     {
