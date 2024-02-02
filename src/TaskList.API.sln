@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskList.Infra.Migrations",
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{967C47E1-40B0-42DA-95C6-BADB1AEB9C6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyResolution", "DependencyResolution\DependencyResolution.csproj", "{17E590E9-3BA0-47D0-824B-7D2F0B27E76C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{967C47E1-40B0-42DA-95C6-BADB1AEB9C6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{967C47E1-40B0-42DA-95C6-BADB1AEB9C6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{967C47E1-40B0-42DA-95C6-BADB1AEB9C6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17E590E9-3BA0-47D0-824B-7D2F0B27E76C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17E590E9-3BA0-47D0-824B-7D2F0B27E76C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17E590E9-3BA0-47D0-824B-7D2F0B27E76C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17E590E9-3BA0-47D0-824B-7D2F0B27E76C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +69,7 @@ Global
 		{3CE341EF-683F-47EF-AB23-395A43EF7691} = {9CE91B59-C782-4797-8868-483462455910}
 		{E96F2ED2-2C04-4110-B827-524619644B6B} = {B3CA5899-FC27-4E21-B7B0-606F04EB2FF6}
 		{83BBA63A-A6DE-4FE4-9912-211939EBDB04} = {B3CA5899-FC27-4E21-B7B0-606F04EB2FF6}
+		{17E590E9-3BA0-47D0-824B-7D2F0B27E76C} = {F9E1F44C-617F-4363-B8AC-41C3DC298465}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3E312B06-C543-40DE-9235-6A4868FD5499}
