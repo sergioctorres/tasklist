@@ -59,8 +59,10 @@ docker-compose up
 - Criação de scripts para criação e encerramento dos containers;
 - Testes unitários com XUnit;
 - Implementação do FluentValidation para validações, removendo Exceptions relacionadas à regra de negócio nas Services;
+- Middleware para tratamento de Exceptions, pois exibir a Exception para o usuário pode trazer informações sobre a Infra, então é um item relacionado à Segurança;
+- Implementação de Cache distribuído (pensando em escalabilidade) para as consultas mais comuns, e com a possibilidade de invalidar caches caso novos registros tenham sido inseridos ou registros anteriores tenham sido alterados;
 - Frontend em Angular 17;
-- Middleware para tratamento de exception;
+- Implementação de Autenticação;
 - Regras de negócio:
     - Atribuição de Tarefa ao Usuário;
     - Consulta de Tarefas por Usuário;

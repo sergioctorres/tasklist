@@ -23,6 +23,9 @@ namespace TaskList.Service.Services
             if (task.EndDate != null)
                 throw new BusinessRuleException($"Não é possível iniciar uma Tarefa que já foi encerrada");
 
+            if (task.StartDate != null)
+                throw new BusinessRuleException($"Essa Tarefa já foi iniciada");
+
             task.Start();
 
             await _repository.UpdateAsync(id, task);
@@ -37,6 +40,9 @@ namespace TaskList.Service.Services
 
             if (task.StartDate == null)
                 throw new BusinessRuleException($"Não é possível encerrar uma Tarefa que não foi iniciada");
+
+            if (task.EndDate != null)
+                throw new BusinessRuleException($"Essa Tarefa já foi encerrada");
 
             task.End();
 

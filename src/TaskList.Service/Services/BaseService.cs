@@ -35,6 +35,7 @@ namespace TaskList.Service.Services
 
         public Task UpdateAsync(int id, T entity)
         {
+            entity.Id = id;
             return (_repository.UpdateAsync(id, entity));
         }
     }
