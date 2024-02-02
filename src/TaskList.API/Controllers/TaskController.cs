@@ -43,9 +43,9 @@ namespace TaskList.API.Controllers
         [HttpPut]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [Route("{id:int}")]
-        public async Task<IActionResult> Update([FromBody] UpdateTaskRequestDto task)
+        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdateTaskRequestDto task)
         {
-            await _service.UpdateAsync(_mapper.Map<Domain.Entities.Task>(task));
+            await _service.UpdateAsync(id, _mapper.Map<Domain.Entities.Task>(task));
             return NoContent();
         }
 

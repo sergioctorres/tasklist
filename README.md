@@ -57,6 +57,7 @@ docker-compose up
 ## Roadmap:
 
 - Criação de scripts para criação e encerramento dos containers;
+- Testes unitários com XUnit;
 - Implementação do FluentValidation para validações, removendo Exceptions relacionadas à regra de negócio nas Services;
 - Frontend em Angular 17;
 - Middleware para tratamento de exception;

@@ -25,7 +25,7 @@ namespace TaskList.Service.Services
 
             task.Start();
 
-            await _repository.UpdateAsync(task);
+            await _repository.UpdateAsync(id, task);
         }
 
         public async Task End(int id)
@@ -40,7 +40,7 @@ namespace TaskList.Service.Services
 
             task.End();
 
-            await _repository.UpdateAsync(task);
+            await _repository.UpdateAsync(id, task);
         }
     }
 }
