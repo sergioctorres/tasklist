@@ -54,6 +54,9 @@ docker-compose up
 </br>
 11 - GetAll
 
+</br>
+</br>
+
 > **NOTA:** Endereço do Swagger da aplicação após execução: http://localhost:8080/swagger/index.html
 
 ## Roadmap:
