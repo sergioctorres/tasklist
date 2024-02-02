@@ -34,45 +34,6 @@
 			"name": "Task",
 			"item": [
 				{
-					"name": "GetAll",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/task",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"task"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "GetById",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/task/{{taskKey}}",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"task",
-								"{{taskKey}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Create",
 					"event": [
 						{
@@ -85,8 +46,7 @@
 									"",
 									"pm.test(\"Get Registered Item Id\", function () {",
 									"    let jsonData = pm.response.json();",
-									"    pm.collectionVariables.set(\"taskKey\", jsonData.id);",
-									"    console.log(\"taskKey:\", pm.collectionVariables.get(\"taskKey\"));",
+									"    pm.collectionVariables.set(\"taskKey\", parseInt(jsonData.id, 10));",
 									"});"
 								],
 								"type": "text/javascript"
@@ -129,41 +89,10 @@
 					"response": []
 				},
 				{
-					"name": "Update",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 204\", function () {",
-									"    pm.response.to.have.status(204);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
+					"name": "GetById",
 					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{access_token}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"Name\": \"Tarefa 1 - Alterada\",\n    \"UserAssignedId\": null\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
+						"method": "GET",
+						"header": [],
 						"url": {
 							"raw": "http://localhost:8080/task/{{taskKey}}",
 							"protocol": "http",
@@ -174,6 +103,73 @@
 							"path": [
 								"task",
 								"{{taskKey}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"\r",
+									"    console.log(\"Tipo de taskKey:\", typeof pm.collectionVariables.get(\"taskKey\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Tarefa 1 - Alterada\",\r\n    \"UserAssignedId\": null\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/Task/{{taskKey}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Task",
+								"{{taskKey}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/task",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"task"
 							]
 						}
 					},
