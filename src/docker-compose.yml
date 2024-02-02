@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: infra-db
+    environment:
+      POSTGRES_DB: TaskListDb
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: $3nh@
+    ports:
+      - "5439:5432"
+    networks:
+      - infra-network
+      
+  migrations:
+    image: tasklist-migrations
+    build:
+      context: .
+      dockerfile: TaskList.Infra.Migrations/Dockerfile
+    depends_on:
+      - postgres
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: $3nh@
+      POSTGRES_DB: TaskListDb
+      host: postgres
+      port: 5432
+    networks:
+      - infra-network
+
+  tasklist.api:
+    image: tasklist-api
+    build:
+      context: .
+      dockerfile: TaskList.API/Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - migrations
+    networks:
+      - infra-network
+      
+networks:
+  infra-network:
