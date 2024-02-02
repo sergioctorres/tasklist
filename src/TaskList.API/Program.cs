@@ -1,28 +1,30 @@
 using Microsoft.EntityFrameworkCore;
+using TaskList.DependencyResolution;
 using TaskList.Domain.DbContexts;
+using TaskList.Domain.DependencyResolution;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Database configuration
 builder.Configuration.AddJsonFile("appsettings.json");
 
 if (builder.Environment.IsDevelopment())
     builder.Configuration.AddJsonFile("appsettings.Development.json", optional: true);
 
 var configuration = builder.Configuration;
-var connectionString = configuration.GetConnectionString("NomeDaSuaConexao");
+var connectionString = configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<TaskListDbContext>(options =>
 {
     options.UseNpgsql(connectionString);
 });
+
+Mappers.Configure(builder.Services);
+Repositories.Configure(builder.Services);
+Services.Configure(builder.Services);
 
 var app = builder.Build();
 
